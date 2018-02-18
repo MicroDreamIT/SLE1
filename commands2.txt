@@ -1,0 +1,60 @@
+Microsoft Windows [Version 10.0.15063]
+(c) 2017 Microsoft Corporation. All rights reserved.
+
+C:\wamp64\www\tutorial\quickstart2\QC>php artisan make:controller TaskController
+Controller created successfully.
+
+C:\wamp64\www\tutorial\quickstart2\QC>php artisan make:controller TaskController -m
+Controller already exists!
+
+C:\wamp64\www\tutorial\quickstart2\QC>php artisan make:controller TaskController -m
+Controller created successfully.
+
+C:\wamp64\www\tutorial\quickstart2\QC>php artisan make:migration create_tasks_table
+Created Migration: 2018_02_17_123614_create_tasks_table
+
+C:\wamp64\www\tutorial\quickstart2\QC>php artisan make:model Task
+Model created successfully.
+
+C:\wamp64\www\tutorial\quickstart2\QC>php artisan make:request TaskRequest
+Request created successfully.
+
+C:\wamp64\www\tutorial\quickstart2\QC>php artisan migrate
+
+   Illuminate\Database\QueryException  : SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'tasks' already exists (SQL: create table `tasks` (`id` int unsigned not null a
+uto_increment primary key, `name` varchar(255) not null, `value` double not null, `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate utf8m
+b4_unicode_ci)
+
+  at C:\wamp64\www\tutorial\quickstart2\QC\vendor\laravel\framework\src\Illuminate\Database\Connection.php: 664
+  660:         // If an exception occurs when attempting to run a query, we'll format the error
+  661:         // message to include the bindings with SQL, which will make this exception a
+  662:         // lot more helpful to the developer instead of just the database's errors.
+  663:         catch (Exception $e) {
+  664:             throw new QueryException(
+  665:                 $query, $this->prepareBindings($bindings), $e
+  666:             );
+  667:         }
+  668:
+  669:         return $result;
+
+  Exception trace:
+
+  1   PDOException::("SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'tasks' already exists")
+      C:\wamp64\www\tutorial\quickstart2\QC\vendor\laravel\framework\src\Illuminate\Database\Connection.php : 458
+
+  2   PDOStatement::execute()
+      C:\wamp64\www\tutorial\quickstart2\QC\vendor\laravel\framework\src\Illuminate\Database\Connection.php : 458
+
+  Please use the argument -v to see more details.
+
+C:\wamp64\www\tutorial\quickstart2\QC>php artisan migrate:fresh
+Dropped all tables successfully.
+Migration table created successfully.
+Migrating: 2014_10_12_000000_create_users_table
+Migrated:  2014_10_12_000000_create_users_table
+Migrating: 2014_10_12_100000_create_password_resets_table
+Migrated:  2014_10_12_100000_create_password_resets_table
+Migrating: 2018_02_17_123614_create_tasks_table
+Migrated:  2018_02_17_123614_create_tasks_table
+
+C:\wamp64\www\tutorial\quickstart2\QC>
